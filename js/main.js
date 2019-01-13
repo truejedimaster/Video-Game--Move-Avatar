@@ -7,33 +7,66 @@ let avatar = document.getElementsByClassName("avatar")[0];
 
 let xAxis = 0;
 let yAxis = 0;
+let isMovable = true;
+let isCollision = false;
 const stepsReset = 0;
 const numOfSteps = 30;
 
-const move = {
-    respawn: (n) => {
-        display.applyXAxis(xAxis = n);
-        display.applyYAxis(yAxis = n);
+
+let check = {
+    movingProcess: (steps, axis) => {
+        if(check.getGameState() === true) {
+            if(check.getCollision(steps, axis) === false) {
+                axis(steps);
+            } else {
+                error.collision();
+            }
+        } else {
+            error.notMovable();
+        }
     },
-    left: (n) => {
-        display.applyXAxis(xAxis -= n);
+    getGameState: () => {
+        return isMovable;
     },
-    right: (n) => {
-        display.applyXAxis(xAxis += n);
+    setGameState: (n) => {
+        isMovable = n;
     },
-    up: (n) => {
-        display.applyYAxis(yAxis -= n);
+    getCollision: (checkSteps, checkAxis) => {
+        newAxis = checkAxis === move.setXAxis ? xAxis : yAxis;
+        let newSteps = newAxis + checkSteps;
+        isCollision = newSteps < 0 ? true : false;
+        return isCollision;
     },
-    down: (n) => {
-        display.applyYAxis(yAxis += n);
+    setCollision: (e) => {
+        isCollision = e;
     }
 }
-const display = {
-    applyXAxis: (n) => {
+let move = {
+    respawn: (n) => {
+        render.setXAxis(xAxis = n);
+        render.setYAxis(yAxis = n);
+    },
+    setXAxis: (n) => {
+        render.setXAxis(xAxis += n);
+    },
+    setYAxis: (n) => {
+        render.setYAxis(yAxis += n);
+    }
+}
+let render = {
+    setXAxis: (n) => {
         avatar.style.left = n + "px";
     },
-    applyYAxis: (n) => {
+    setYAxis: (n) => {
         avatar.style.top = n + "px";
+    }
+}
+let error = {
+    collision: () => {
+        console.log("You can not move that way.");
+    },
+    notMovable: () => {
+        console.log("You can not move.");
     }
 }
 
@@ -42,14 +75,14 @@ btnRespawn.addEventListener("click", () => {
     move.respawn(stepsReset);
 });
 btnMoveLeft.addEventListener("click", () => {
-    move.left(numOfSteps);
+    check.movingProcess(-numOfSteps, move.setXAxis);
 });
 btnMoveRight.addEventListener("click", () => {
-    move.right(numOfSteps);
+    check.movingProcess(numOfSteps, move.setXAxis);
 });
 btnMoveUp.addEventListener("click", () => {
-    move.up(numOfSteps);
+    check.movingProcess(-numOfSteps, move.setYAxis);
 });
 btnMoveDown.addEventListener("click", () => {
-    move.down(numOfSteps);
+    check.movingProcess(numOfSteps, move.setYAxis);
 });
