@@ -18,6 +18,7 @@ let check = {
         if(check.getGameState() === true) {
             if(check.getCollision(steps, axis) === false) {
                 axis(steps);
+                error.resetMessage();
             } else {
                 error.collision();
             }
@@ -63,14 +64,17 @@ let render = {
     }
 }
 let error = {
+    setMessage: (e) => {
+        document.getElementsByClassName("message")[0].innerHTML = e;
+    },
     resetMessage: () => {
-        document.getElementsByClassName("message")[0].innerHTML = "";
+        error.setMessage("");
     },
     collision: () => {
-        document.getElementsByClassName("message")[0].innerHTML = "You can not move that way.";
+        error.setMessage("You can not move that way.");
     },
     notMovable: () => {
-        document.getElementsByClassName("message")[0].innerHTML = "You can not move.";
+        error.setMessage("You can not move.");
     }
 }
 
