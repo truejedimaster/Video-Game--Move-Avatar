@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: 400;
+  color: black; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  vertical-align: top; }
+
+p, span {
+  margin: 0;
+  padding: 0;
+  color: black;
+  vertical-align: top;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: 400; }
+
+hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid lightgray; }
+
+img {
+  vertical-align: top; }
+
+a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: 400;
+  color: black; }
+  a:hover {
+    text-decoration: none; }
+
+ol, ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  vertical-align: top; }
+  ol li, ul li {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    line-height: 1em;
+    font-weight: 400; }
+
+form fieldset {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: 400; }
+  form fieldset legend {
+    margin: 0;
+    padding: 0;
+    border: initial;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    line-height: 1em;
+    font-weight: 400; }
+  form fieldset input {
+    margin: 0;
+    padding: 10px 20px;
+    border: 1px solid lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    line-height: 1em;
+    font-weight: 400; }
+
+.col-centered {
+  float: none;
+  margin: 0 auto; }

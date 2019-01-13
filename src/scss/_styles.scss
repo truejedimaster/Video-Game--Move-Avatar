@@ -1,0 +1,31 @@
+//////////////////////////////Mobile View
+#home {
+    .nav {
+
+    }
+    .main {
+
+    }
+    .footer {
+
+    }
+}
+
+//////////////////////////////Additional Global Styles
+@import "style-reset";
+
+
+//////////////////////////////Desktop View
+@media (min-width: $desktop) {
+    #home {
+        .nav {
+
+        }
+        .main {
+
+        }
+        .footer {
+
+        }
+    }
+}
