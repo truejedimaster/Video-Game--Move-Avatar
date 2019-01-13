@@ -3,6 +3,7 @@ let btnMoveLeft = document.getElementsByClassName("move-left")[0];
 let btnMoveRight = document.getElementsByClassName("move-right")[0];
 let btnMoveUp = document.getElementsByClassName("move-up")[0];
 let btnMoveDown = document.getElementsByClassName("move-down")[0];
+let messageContainer = document.getElementsByClassName("message")[0];
 let avatar = document.getElementsByClassName("avatar")[0];
 
 let xAxis = 30;
@@ -65,7 +66,7 @@ let render = {
 }
 let error = {
     setMessage: (e) => {
-        document.getElementsByClassName("message")[0].innerHTML = e;
+        messageContainer.innerHTML = e;
     },
     resetMessage: () => {
         error.setMessage("");
