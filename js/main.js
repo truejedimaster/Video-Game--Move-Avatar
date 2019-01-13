@@ -1,22 +1,36 @@
-const test = {
-    main: () => {
-        test.testing();
-        test.one();
-        test.two();
-        test.three();
+let btnMoveLeft = document.getElementsByClassName("move-left")[0];
+let btnMoveRight = document.getElementsByClassName("move-right")[0];
+let btnMoveUp = document.getElementsByClassName("move-up")[0];
+let btnMoveDown = document.getElementsByClassName("move-down")[0];
+let avatar = document.getElementsByClassName("avatar")[0];
+
+let xAxis = 0;
+let yAxis = 0;
+
+const move = {
+    left: () => {
+        console.log("left");
     },
-    testing: () => {
-        console.log("Testing...");
+    right: () => {
+        console.log("right");
     },
-    one: () => {
-        console.log("One");
+    up: () => {
+        console.log("up");
     },
-    two: () => {
-        console.log("Two");
-    },
-    three: () => {
-        console.log("Three");
+    down: () => {
+        console.log("down");
     }
 }
 
-test.main();
+btnMoveLeft.addEventListener("click", () => {
+    move.left();
+});
+btnMoveRight.addEventListener("click", () => {
+    move.right();
+});
+btnMoveUp.addEventListener("click", () => {
+    move.up();
+});
+btnMoveDown.addEventListener("click", () => {
+    move.down();
+});

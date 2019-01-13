@@ -1,13 +1,9 @@
 //////////////////////////////Mobile View
 #home {
-    .nav {
-
-    }
-    .main {
-
-    }
-    .footer {
-
+    .avatar {
+        width: 50px;
+        height: 50px;
+        background-color: red;
     }
 }
 
@@ -18,14 +14,6 @@
 //////////////////////////////Desktop View
 @media (min-width: $desktop) {
     #home {
-        .nav {
 
-        }
-        .main {
-
-        }
-        .footer {
-
-        }
     }
 }
