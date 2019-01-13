@@ -5,11 +5,11 @@ let btnMoveUp = document.getElementsByClassName("move-up")[0];
 let btnMoveDown = document.getElementsByClassName("move-down")[0];
 let avatar = document.getElementsByClassName("avatar")[0];
 
-let xAxis = 0;
-let yAxis = 0;
+let xAxis = 30;
+let yAxis = 30;
 let isMovable = true;
 let isCollision = false;
-const stepsReset = 0;
+const stepsReset = 30;
 const numOfSteps = 30;
 
 
@@ -45,6 +45,7 @@ let move = {
     respawn: (n) => {
         render.setXAxis(xAxis = n);
         render.setYAxis(yAxis = n);
+        error.resetMessage();
     },
     setXAxis: (n) => {
         render.setXAxis(xAxis += n);
@@ -62,11 +63,14 @@ let render = {
     }
 }
 let error = {
+    resetMessage: () => {
+        document.getElementsByClassName("message")[0].innerHTML = "";
+    },
     collision: () => {
-        console.log("You can not move that way.");
+        document.getElementsByClassName("message")[0].innerHTML = "You can not move that way.";
     },
     notMovable: () => {
-        console.log("You can not move.");
+        document.getElementsByClassName("message")[0].innerHTML = "You can not move.";
     }
 }
 
