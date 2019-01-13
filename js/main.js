@@ -1,3 +1,4 @@
+let btnRespawn = document.getElementsByClassName("respawn")[0];
 let btnMoveLeft = document.getElementsByClassName("move-left")[0];
 let btnMoveRight = document.getElementsByClassName("move-right")[0];
 let btnMoveUp = document.getElementsByClassName("move-up")[0];
@@ -6,31 +7,51 @@ let avatar = document.getElementsByClassName("avatar")[0];
 
 let xAxis = 0;
 let yAxis = 0;
+const numOfSteps = 30;
 
 const move = {
-    left: () => {
-        console.log("left");
+    respawn: () => {
+        console.log("Respawn");
     },
-    right: () => {
-        console.log("right");
+    left: (n) => {
+        display.applyXAxis(xAxis -= n);
+        console.log(xAxis);
     },
-    up: () => {
-        console.log("up");
+    right: (n) => {
+        display.applyXAxis(xAxis += n);
+        console.log(xAxis);
     },
-    down: () => {
-        console.log("down");
+    up: (n) => {
+        display.applyYAxis(yAxis -= n);
+        console.log(yAxis);
+    },
+    down: (n) => {
+        display.applyYAxis(yAxis += n);
+        console.log(yAxis);
+    }
+}
+const display = {
+    applyXAxis: (n) => {
+        avatar.style.left = n + "px";
+    },
+    applyYAxis: (n) => {
+        avatar.style.top = n + "px";
     }
 }
 
+
+btnRespawn.addEventListener("click", () => {
+    move.respawn(0);
+});
 btnMoveLeft.addEventListener("click", () => {
-    move.left();
+    move.left(numOfSteps);
 });
 btnMoveRight.addEventListener("click", () => {
-    move.right();
+    move.right(numOfSteps);
 });
 btnMoveUp.addEventListener("click", () => {
-    move.up();
+    move.up(numOfSteps);
 });
 btnMoveDown.addEventListener("click", () => {
-    move.down();
+    move.down(numOfSteps);
 });
