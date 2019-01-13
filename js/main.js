@@ -7,27 +7,25 @@ let avatar = document.getElementsByClassName("avatar")[0];
 
 let xAxis = 0;
 let yAxis = 0;
+const stepsReset = 0;
 const numOfSteps = 30;
 
 const move = {
-    respawn: () => {
-        console.log("Respawn");
+    respawn: (n) => {
+        display.applyXAxis(xAxis = n);
+        display.applyYAxis(yAxis = n);
     },
     left: (n) => {
         display.applyXAxis(xAxis -= n);
-        console.log(xAxis);
     },
     right: (n) => {
         display.applyXAxis(xAxis += n);
-        console.log(xAxis);
     },
     up: (n) => {
         display.applyYAxis(yAxis -= n);
-        console.log(yAxis);
     },
     down: (n) => {
         display.applyYAxis(yAxis += n);
-        console.log(yAxis);
     }
 }
 const display = {
@@ -41,7 +39,7 @@ const display = {
 
 
 btnRespawn.addEventListener("click", () => {
-    move.respawn(0);
+    move.respawn(stepsReset);
 });
 btnMoveLeft.addEventListener("click", () => {
     move.left(numOfSteps);
