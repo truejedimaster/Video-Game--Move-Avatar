@@ -1,6 +1,9 @@
 WHAT IS THIS:
 This is a JavaScript exercise to make a simple video game.
 
+WRITTEN IN WHAT JAVASCRIPT VERSION:
+ES6
+
 GOAL:
 A top down view of your character as you move them across the floor similar to the game The Legend of Zelda.
 
